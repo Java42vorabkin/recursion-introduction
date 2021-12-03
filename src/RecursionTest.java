@@ -35,17 +35,28 @@ class RecursionTest {
 	}
 	@Test
 	void powTest() {
+		assertEquals(0, Recursion.pow(0, 2));
+		assertEquals(1, Recursion.pow(2, 0));
 		assertEquals(4, Recursion.pow(-2, 2));
 		assertEquals(4, Recursion.pow(2, 2));
 		assertEquals(-8, Recursion.pow(-2, 3));
 		assertEquals(8, Recursion.pow(2, 3));
-		boolean fl = false;
+		boolean flag1 = false;
 		try {
 			Recursion.pow(10, -10);
 		} catch (IllegalArgumentException e) {
-			fl = true;
+//			System.out.println("1. power<0  "+e.toString());
+			flag1 = true;
 		}
-		assertTrue(fl);
+		assertTrue(flag1);
+		boolean flag2 = false;
+		try {
+			Recursion.pow(0, 0);
+		} catch (IllegalArgumentException e) {
+//			System.out.println("2. 0^0  "+e.toString());
+			flag2 = true;
+		}
+		assertTrue(flag2);
 	}
 	@Test
 	void sumtest() {
@@ -54,6 +65,8 @@ class RecursionTest {
 	}
 	@Test
 	void squareTest() {
+		assertEquals(0, Recursion.square(0));
+		assertEquals(1, Recursion.square(1));
 		assertEquals(4, Recursion.square(2));
 		assertEquals(4, Recursion.square(-2));
 		assertEquals(100, Recursion.square(10));
